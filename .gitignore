@@ -1,0 +1,17 @@
+# Environment files
+.env
+.env.local
+
+# .NET build artifacts
+bin/
+obj/
+*.dll
+*.pdb
+
+# User-specific files
+.vs/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db

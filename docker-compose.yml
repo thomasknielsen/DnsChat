@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  dnschat:
+    build: .
+    ports:
+      - "8053:53/udp"
+      - "8053:53/tcp"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - BIND_ADDRESS=0.0.0.0
+      - DNS_PORT=53
+    restart: unless-stopped
+    cap_add:
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
